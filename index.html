@@ -26,7 +26,7 @@
           'технологию babel,',
           'немного jquery для общего ознакомления.',
         ];
-        const list = arr.map((txt)=> {return <li>{txt}</li>;})
+        const list = arr.map((txt,index)=> {return <li key={index}>{txt}</li>;})
 		    return <div>
                  {text}
                  <ul>
