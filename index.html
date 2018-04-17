@@ -3,10 +3,45 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://npmcdn.com/react@15.3.0/dist/react.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
+    <script src="https://npmcdn.com/remarkable@1.6.2/dist/remarkable.min.js"></script>
   </head>
   <body>
-    <script>
-    alert("Привет. Будем изучать nodejs")
+    <div id = "content">
+    </div>
+
+    <script type="text/babel">
+    class App extends React.Component {
+	    render() {
+        const text = <div>Привет. Решил ознакомиться с :</div>;
+        const text2 = <div>Babel пока работает на
+        клиентской части, нужно будет потом разобраться, как пихануть на сервер
+        </div>;
+        const arr = ['nodejs,',
+          'react (почему то работодатели любят, наверно хорошая штука),',
+          'технологию babel,',
+          'немного jquery для общего ознакомления.',
+        ];
+        const list = arr.map((txt)=> {return <li>{txt}</li>;})
+		    return <div>
+                 {text}
+                 <ul>
+                   {list}
+                 </ul>
+                 {text2}
+               </div>;
+	    }
+    }
+    // впихиваем все компоненты реакта в DOM html, в его определённуб часть
+    // в данном случае в div content
+    ReactDOM.render(
+	   <App />,
+	   document.getElementById('content')
+    );
     </script>
   </body>
 </html>
